@@ -1,0 +1,319 @@
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+
+body{
+  font-family: "Crete Round";
+}
+
+header{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  z-index: 999;
+  
+  img{
+    width: 12%;
+  }
+  ul{
+    display: flex;
+    padding: 5px 150px 5px 16px;
+    gap: 16px;
+    list-style: none;
+    background-color: #DCCBBDBD;
+    border-radius: 16px;
+    backdrop-filter: blur(20px);
+  }
+}
+
+.secao1{
+  width: 100%;
+  height: 70vh;
+  background-image: url(/assets/jojo.jpg);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  h1{
+    font-size: 12vw;
+    color: #E6D3C8;
+  }
+}
+
+button {
+ width: 20px
+ display flex;
+ justify-items: center;
+ align-items: center;
+ border-radius: 40px;
+ border: none;
+ outline: none;
+ font-size: 16px;
+ opacity: 0.9;
+ transition: all .3s;
+ font-size: 15px;
+ font-family: "Crete Round";
+}
+
+
+button:hover{
+opacity: 1; 
+}
+
+.divBotoes{
+  width: 32%
+}
+
+.botao1{
+  font-size: 15px;
+  padding: 4px 5px 4px 5px;
+  background-color: #42445A00;
+  color:  #C59D83;
+}
+
+.botao2{
+  background-color: #83C584;
+  color: #EEEEEE;
+  padding: 4px 5px 4px 5px;
+  font-size: 15px;
+}
+
+.secao2 {
+  background: #FFFCF9;
+  width: 100%;
+  min-height: 100vh; /* Usa min-height em vez de height para crescer com o conteúdo e os cards não sumirem */
+  display: flex;
+  flex-direction: column; /* Coloca o texto em cima e os cards embaixo */
+  align-items: center; /* Centraliza a caixa do texto e o bloco de cards na página */
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.text1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Alinha o texto à esquerda (não no centro da tela) */
+  margin-bottom: 24px;
+  width: 100%;
+  max-width: 900px; /* Garante que fique alinhado com o limite dos cards */
+
+  h2 {
+    font-size: 32px;
+    color: #492512;
+    margin: 0;
+  }
+
+  p {
+    margin-top: 8px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+.divCards {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  max-width: 900px; /* Permite que os cards fiquem bem distribuídos no PC */
+}
+
+.divCafe {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 12px #0002;
+  width: 100%; /* No celular ocupa a largura total */
+  box-sizing: border-box;
+
+  img { 
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    height: 200px;
+  }
+}
+
+.info {
+  padding: 16px;
+
+  h3 {
+    margin: 0 0 6px;
+    font-size: 16px;
+  }
+
+  p {
+    font-size: 13px;
+    color: #66635CEB;
+    margin-bottom: 8px;
+  }
+
+  strong {
+    margin-top: 8px;
+    display: block;
+    font-size: 15px;
+  }
+}
+
+/* No tablet e computador, fica no formato 2x2 */
+@media (min-width: 600px) {
+  .divCafe {
+    width: calc(50% - 8px); /* 2 cards por linha */
+  }
+}
+
+
+.secao3{
+  width: 100%;
+  height:70vh;
+  
+  h2, p{
+  z-index: 500;  
+  opacity: 0.9;
+  }
+}
+
+
+.secao3 {
+  padding: 40px 20px;
+  background: #FFFCF9;
+  text-align: center;
+  position: relative;
+
+  h2 {
+    font-size: 32px;
+    color: #492512;
+    margin-bottom: 8px;
+  }
+
+  p {
+    font-size: 14px;
+    color: #66635CEB;
+    margin-bottom: 24px;
+  }
+}
+
+.galeria-grid {
+  /* No celular: vira carrossel horizontal para poder arrastar pro lado */
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 10px 0;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* Deixa a rolagem bem leve no iPhone */
+
+  /* Esconde a barra de rolagem no celular para ficar limpo */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  img {
+    flex: 0 0 260px; /* Tamanho fixo de cada foto no celular */
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px #0002;
+    scroll-snap-align: start;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 20px #0003;
+    }
+  }
+  z-index: 900;
+}
+
+/* No computador (telas maiores que 768px): vira uma grade normal */
+@media (min-width: 768px) {
+  .galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    overflow-x: visible;
+    max-width: 1100px;
+    margin: 0 auto;
+
+    img {
+      flex: unset; /* Remove o tamanho fixo do carrossel */
+      width: 100%;
+      height: 220px;
+    }
+  }
+}
+
+.secao4{
+  background-color: #412B1C;
+  color: #EED2C4;
+  padding: 4%;
+  margin-top: 8px;
+  
+  
+  .whats{
+    display: flex;
+    align-items: center;
+    img{
+      width: 82px;
+    }
+  }
+  
+    .instagram{
+    display: flex;
+    align-items: center;
+    padding: 11px;
+    gap: 14px;
+    color: #EED2C4;
+    img{
+      width: 58px;
+    }
+  }
+    .localiz{
+    display: flex;
+    align-items: center;
+    padding: 9px;
+    gap: 13px;
+    font-size: 14px;
+    img{
+      width: 62px;
+    }
+  }
+}
+
+
+img{
+  width: 32%;
+}
+
+a{
+  color: #EEEEEE;
+  text-decoration: none;
+}
+.instag{
+  color:  #EED2C4;
+}
+
+html{
+ scroll-behavior: smooth;
+}
+
+.secao3:before {
+ content: "";
+ width: 100%;
+ height: 100%;
+ background: linear-gradient(#FFF8F2B5, #DBB2920F, #FFFFFFD4);
+ position: absolute;
+ top: 0;
+ left: 0;
+}
+
+img, p, i, h1, h2, h3 {
+  z-index: 990;
+}
