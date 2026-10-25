@@ -88,7 +88,7 @@ opacity: 1;
 .secao2 {
   background: #FFFCF9;
   width: 100%;
-  min-height: 100vh; /* Usa min-height em vez de height para crescer com o conteúdo e os cards não sumirem */
+  min-height: 35vh; /* Usa min-height em vez de height para crescer com o conteúdo e os cards não sumirem */
   display: flex;
   flex-direction: column; /* Coloca o texto em cima e os cards embaixo */
   align-items: center; /* Centraliza a caixa do texto e o bloco de cards na página */
